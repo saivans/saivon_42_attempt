@@ -1,0 +1,31 @@
+# Compiled object files
+*.o
+
+# Compiled binary executables
+a.out
+*.out
+*.exe
+
+# Dependency files
+*.d
+
+# Build directories
+/build/
+/bin/
+/obj/
+
+# Editor/OS files
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Shell history (if accidentally saved)
+.bash_history
+
+# Makefile backups
+Makefile.bak
+
