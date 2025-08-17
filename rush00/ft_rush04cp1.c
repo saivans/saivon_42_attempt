@@ -6,7 +6,7 @@
 /*   By: stagma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 14:58:50 by stagma            #+#    #+#             */
-/*   Updated: 2025/08/17 14:54:58 by stagma           ###   ########.fr       */
+/*   Updated: 2025/08/17 15:01:28 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,10 @@ void	ft_rush04cp1(int x, int y)
 		{
 			if (y != 1) 
 			{
-			ft_putchar('\n');
-			ft_firstlast('C', 'A', i, x);
-		}}
+				ft_putchar('\n');
+				ft_firstlast('C', 'A', i, x);
+			}
+		}		
 		cas++;
 	}
 	ft_putchar('\n');
