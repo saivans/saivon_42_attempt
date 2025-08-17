@@ -6,7 +6,7 @@
 /*   By: stagma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 14:58:50 by stagma            #+#    #+#             */
-/*   Updated: 2025/08/16 15:15:53 by stagma           ###   ########.fr       */
+/*   Updated: 2025/08/17 14:54:58 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,45 @@ void	ft_rush04cp1(int x, int y)
 {
 	int	i;
 	int	j;
-	int	k;
+	int	cas;
 
 	i = 0 ;
 	j = 1 ;
-	k = 0 ;
+	cas = 1 ;
 	if (x == 0 || y == 0)
 		return ;
-	while (k < y)
+	while (cas <= 3)
 	{
-		if (k == 0)
-			ft_firstlast('A', 'C', i, y);
-		else if (k == 1)
+		if (cas == 1)
+			ft_firstlast('A', 'C', i, x);
+		else if (cas == 2)
 			ft_mid(i, j, x, y);
-		else if (k == (y - 1))
+		else if(cas == 3)
 		{
+			if (y != 1) 
+			{
 			ft_putchar('\n');
-			ft_firstlast('C', 'A', i, y);
-		}
-		k++;
+			ft_firstlast('C', 'A', i, x);
+		}}
+		cas++;
 	}
 	ft_putchar('\n');
 }
 
 void	ft_firstlast(char a, char c, int i, int y)
 {
-	ft_putchar(a);
+	i = 0 ;
+	if (i < y)
+	{
+		ft_putchar(a);
+	}
 	while (i < y - 2)
 	{
 		ft_putchar('B');
 		i++;
 	}
-	i = 0;
-	if (i < y - 2)
+	i += 2 ;
+	if (i == y)
 	{
 		ft_putchar(c);
 	}
@@ -72,11 +78,10 @@ void	ft_mid(int i, int j, int x, int y)
 			ft_putchar(' ');
 			i++;
 		}
-		i = 0;
-		if (i < x - 2)
-		{
+		i += 2 ;
+		if (i == x) {
 			ft_putchar('B');
-			j++;
 		}
+			j++;
 	}
 }
