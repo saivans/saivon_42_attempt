@@ -5,31 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: stagma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/23 14:54:31 by stagma            #+#    #+#             */
-/*   Updated: 2025/08/23 15:44:23 by stagma           ###   ########.fr       */
+/*   Created: 2025/08/23 17:07:19 by stagma            #+#    #+#             */
+/*   Updated: 2025/08/24 11:16:57 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcapitalize(char *str)
+char	*lowercase(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0 ;
 	while (str[i])
 	{
-		if (!(str[i]
-			if (str[i + 1] >= 48 && str[i + 1] <= 57)
-			{
-				write(1, &str[i], 1);
-			}
-			else if (str[i + 1] >= 65 && str[i + 1] <= 90)
-			{
-				write(1, &str[i], 1);
-			}
-			else if (str[i + 1] >= 97 && str[i + 1] <= 122)
-			{
-				write(1, &str[i], 1);
-			}
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32 ;
 		i++;
 	}
+	return (str);
+}
+
+char	*ft_strcapitalize(char *str)
+{
+	int	i;
+	int	status;
+
+	lowercase(str);
+	i = 0 ;
+	status = 1 ;
+	while (str[i])
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			status = 0 ;
+		else if (str[i] >= 'a' && str[i] <= 'z' && status)
+		{
+			str[i] -= 32 ;
+			status = 0 ;
+		}
+		else if (!(str[i] >= 'a' && str[i] <= 'z'))
+			status = 1 ;
+		i++;
+	}
+	return (str);
 }

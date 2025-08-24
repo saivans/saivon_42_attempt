@@ -6,21 +6,21 @@
 /*   By: stagma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/18 18:37:23 by stagma            #+#    #+#             */
-/*   Updated: 2025/08/18 21:14:34 by stagma           ###   ########.fr       */
+/*   Updated: 2025/08/24 11:55:57 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strncpy(char *dest, char *src, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0 ;
-	while (i <= n - 1 && src[i] != '\0')
+	while (i < n && src[i] != '\0')
 	{
 		dest[i] = src[i];
 		i++ ;
 	}
-	while (i <= n - 1)
+	while (i < n)
 	{
 		dest[i] = '\0' ;
 		i++ ;
