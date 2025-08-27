@@ -1,35 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stagma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 10:05:34 by stagma            #+#    #+#             */
-/*   Updated: 2025/08/27 10:14:00 by stagma           ###   ########.fr       */
+/*   Created: 2025/08/26 11:33:45 by stagma            #+#    #+#             */
+/*   Updated: 2025/08/26 11:35:42 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+int	ft_strlen(char *str)
 {
-	unsigned int	len_d;
-	unsigned int	len_s;
-	unsigned int	i;
+	int	i;
 
-	len_d = 0 ;
-	while (dest[len_d])
-		len_d++;
-	len_s = 0 ;
-	while (src[len_s])
-		len_s++;
-	if (len_d >= size || size == 0)
-		return (size + len_s);
 	i = 0 ;
-	while (src[i] && len_d + i < size - 1)
-	{
-		dest[len_d + i] = src[i];
+	while (str[i])
 		i++;
-	}
-	dest[len_d + i] = '\0' ;
-	return (len_d + len_s);
+	return (i);
 }

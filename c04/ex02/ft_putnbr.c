@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stagma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 10:05:34 by stagma            #+#    #+#             */
-/*   Updated: 2025/08/27 10:14:00 by stagma           ###   ########.fr       */
+/*   Created: 2025/08/26 11:42:42 by stagma            #+#    #+#             */
+/*   Updated: 2025/08/26 11:53:13 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
-{
-	unsigned int	len_d;
-	unsigned int	len_s;
-	unsigned int	i;
+#include <unistd.h>
 
-	len_d = 0 ;
-	while (dest[len_d])
-		len_d++;
-	len_s = 0 ;
-	while (src[len_s])
-		len_s++;
-	if (len_d >= size || size == 0)
-		return (size + len_s);
-	i = 0 ;
-	while (src[i] && len_d + i < size - 1)
+void	ft_putnbr(int nb)
+{
+	char	c;
+
+	if (nb < 0)
 	{
-		dest[len_d + i] = src[i];
-		i++;
+		write(1, "-", 1);
+		if (nb == -2147483648)
+		{
+			write(1, "2", 1);
+			nb = 147483648 ;
+		}
+		else
+			nb = -nb ;
 	}
-	dest[len_d + i] = '\0' ;
-	return (len_d + len_s);
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	c = nb % 10 + 48 ;
+	write(1, &c, 1);
 }

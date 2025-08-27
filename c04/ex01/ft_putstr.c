@@ -1,35 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: stagma <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/27 10:05:34 by stagma            #+#    #+#             */
-/*   Updated: 2025/08/27 10:14:00 by stagma           ###   ########.fr       */
+/*   Created: 2025/08/26 11:38:15 by stagma            #+#    #+#             */
+/*   Updated: 2025/08/26 11:41:49 by stagma           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
-{
-	unsigned int	len_d;
-	unsigned int	len_s;
-	unsigned int	i;
+#include <unistd.h>
 
-	len_d = 0 ;
-	while (dest[len_d])
-		len_d++;
-	len_s = 0 ;
-	while (src[len_s])
-		len_s++;
-	if (len_d >= size || size == 0)
-		return (size + len_s);
+void	ft_putstr(char *str)
+{
+	int	i;
+
 	i = 0 ;
-	while (src[i] && len_d + i < size - 1)
+	while (str[i])
 	{
-		dest[len_d + i] = src[i];
+		write(1, &str[i], 1);
 		i++;
 	}
-	dest[len_d + i] = '\0' ;
-	return (len_d + len_s);
 }
